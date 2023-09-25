@@ -33,6 +33,7 @@ export const CompanySwitcher: React.FC<CompanySwitcherProps> = ({ items }) => {
   const currentCompany = items.find((item) => item.value === params.companyId);
 
   const onSelect = (company: (typeof items)[0]) => {
+    setOpen(false);
     router.push(`/${company.value}`);
   };
 
