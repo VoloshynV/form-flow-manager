@@ -20,6 +20,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+
 interface CompanyFormProps {
   initialData: Company | null;
 }
@@ -74,67 +83,77 @@ export const CompanyForm: React.FC<CompanyFormProps> = ({ initialData }) => {
   };
 
   return (
-    <div className="space-y-4 py-2 pb-4">
-      <Form {...form}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="space-y-4 lg:w-1/2 xl:w-1/3">
-            <FormField
-              control={control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      placeholder="Landing Page 1"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={control}
-              name="frontendUrl"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Frontend URL</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      placeholder="https://landing.com"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={control}
-              name="validationFields"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Validation Fields</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      placeholder="name, email, phone"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button disabled={isLoading} type="submit">
-              Continue
-            </Button>
-          </div>
-        </form>
-      </Form>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Creating Company</CardTitle>
+        <CardDescription>
+          Creating new Company for your new site
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Form {...form}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="space-y-4">
+              <FormField
+                control={control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        placeholder="Landing Page 1"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={control}
+                name="frontendUrl"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Frontend URL</FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        placeholder="https://landing.com"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={control}
+                name="validationFields"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Validation Fields</FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        placeholder="name, email, phone"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </form>
+        </Form>
+      </CardContent>
+      <CardFooter>
+        <Button disabled={isLoading} type="submit">
+          Create
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };
