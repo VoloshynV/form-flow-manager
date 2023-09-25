@@ -26,8 +26,8 @@ export const Navbar = async () => {
     <div className="border-b py-4">
       <Container>
         <div className="flex items-center gap-7">
-          <Link href="/" className="text-3xl">
-            FormFlow Manager
+          <Link href="/" className="font-mono text-2xl font-bold">
+            <span className="text-orange-400">Form</span>Flow
           </Link>
           <MainNav />
           <div className="ml-auto flex items-center gap-x-8">
