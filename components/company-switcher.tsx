@@ -1,7 +1,7 @@
 "use client";
 
 import { Check, ChevronsUpDown, PlusCircle } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -28,13 +28,14 @@ interface CompanySwitcherProps {
 export const CompanySwitcher: React.FC<CompanySwitcherProps> = ({ items }) => {
   const router = useRouter();
   const params = useParams();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const currentCompany = items.find((item) => item.value === params.companyId);
 
   const onSelect = (company: (typeof items)[0]) => {
     setOpen(false);
-    router.push(`/${company.value}`);
+    router.push(pathname.replace(params.companyId as string, company.value));
   };
 
   return (
