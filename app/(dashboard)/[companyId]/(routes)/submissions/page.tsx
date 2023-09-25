@@ -19,19 +19,13 @@ const SubmissionsPage: React.FC<SubmissionsProps> = async ({ params }) => {
       data = submission.data;
     }
 
-    return {
-      id: submission.id,
-      ...data,
-    };
+    return data;
   });
 
-  const columns = [
-    { accessorKey: "id", header: "Id" },
-    ...Object.keys(submissions[0]?.data || {}).map((key) => ({
-      accessorKey: key,
-      header: key,
-    })),
-  ];
+  const columns = Object.keys(submissions[0]?.data || {}).map((key) => ({
+    accessorKey: key,
+    header: key,
+  }));
 
   const firstKey = Object.keys(submissions[0]?.data || {})[0];
 

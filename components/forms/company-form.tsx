@@ -84,15 +84,15 @@ export const CompanyForm: React.FC<CompanyFormProps> = ({ initialData }) => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Creating Company</CardTitle>
-        <CardDescription>
-          Creating new Company for your new site
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+      <Form {...form}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <CardHeader>
+            <CardTitle>Creating Company</CardTitle>
+            <CardDescription>
+              Creating new Company for your new site
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
             <div className="space-y-4">
               <FormField
                 control={control}
@@ -146,14 +146,14 @@ export const CompanyForm: React.FC<CompanyFormProps> = ({ initialData }) => {
                 )}
               />
             </div>
-          </form>
-        </Form>
-      </CardContent>
-      <CardFooter>
-        <Button disabled={isLoading} type="submit">
-          Create
-        </Button>
-      </CardFooter>
+          </CardContent>
+          <CardFooter>
+            <Button disabled={isLoading} type="submit">
+              Submit
+            </Button>
+          </CardFooter>
+        </form>
+      </Form>
     </Card>
   );
 };
