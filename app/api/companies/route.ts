@@ -6,7 +6,7 @@ import db from "@/lib/db";
 const userId = "user_2VqNfggODs9qGxVp4C4LSr2rdkB"; // TODO: Replace with your user ID
 
 export async function POST(req: Request) {
-  const { name } = await req.json();
+  const { name, frontendUrl, validationFields } = await req.json();
 
   if (!name) {
     return new NextResponse("Name is required", { status: 400 });
@@ -16,6 +16,8 @@ export async function POST(req: Request) {
     const company = await db.company.create({
       data: {
         name,
+        frontendUrl,
+        validationFields,
         userId,
       },
     });

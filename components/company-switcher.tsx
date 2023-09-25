@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, PlusCircle } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -18,6 +18,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+
+import { Separator } from "./ui/separator";
 
 interface CompanySwitcherProps {
   items: { value: string; label: string }[];
@@ -65,6 +67,18 @@ export const CompanySwitcher: React.FC<CompanySwitcherProps> = ({ items }) => {
                 {item.label}
               </CommandItem>
             ))}
+          </CommandGroup>
+          <Separator />
+          <CommandGroup>
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+                router.push(`/${params.companyId}/add`);
+              }}
+            >
+              <PlusCircle className="mr-2 h-4 w-4" />
+              Add new company
+            </CommandItem>
           </CommandGroup>
         </Command>
       </PopoverContent>

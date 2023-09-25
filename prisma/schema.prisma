@@ -24,10 +24,12 @@ model Submission {
 }
 
 model Company {
-  id     Int    @id @default(autoincrement())
-  uuid   String @unique @default(uuid())
-  name   String
-  userId String
+  id               Int    @id @default(autoincrement())
+  uuid             String @unique @default(uuid())
+  name             String
+  userId           String
+  validationFields String @default("")
+  frontendUrl      String @default("")
 
   submissions Submission[]
 

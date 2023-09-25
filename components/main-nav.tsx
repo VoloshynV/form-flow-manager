@@ -13,8 +13,12 @@ export const MainNav = () => {
       name: "Home",
     },
     {
+      path: `/${params.companyId}/companies `,
+      name: "Companies",
+    },
+    {
       path: `/${params.companyId}/submissions `,
-      name: "Submissions ",
+      name: "Submissions",
     },
   ];
 
