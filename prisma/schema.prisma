@@ -12,9 +12,10 @@ datasource db {
 }
 
 model Submission {
-  id   Int    @id @default(autoincrement())
-  uuid String @unique @default(uuid())
-  data Json
+  id     Int     @id @default(autoincrement())
+  uuid   String  @unique @default(uuid())
+  data   Json
+  viewed Boolean @default(false)
 
   companyId Int
   company   Company @relation(fields: [companyId], references: [id])

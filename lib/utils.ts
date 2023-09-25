@@ -12,3 +12,7 @@ export default function getURL(path: string) {
     : window.location.origin;
   return new URL(path, baseURL).toString();
 }
+
+export const capitalizeFirstLetter = (string: string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};

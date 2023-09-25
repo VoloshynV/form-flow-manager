@@ -3,6 +3,7 @@ import React from "react";
 import { getSubmissions } from "@/actions/get-submissions";
 import { Container } from "@/components/container";
 import { DataTable } from "@/components/ui/data-table";
+import { capitalizeFirstLetter } from "@/lib/utils";
 
 interface SubmissionsProps {
   params: {
@@ -19,13 +20,19 @@ const SubmissionsPage: React.FC<SubmissionsProps> = async ({ params }) => {
       data = submission.data;
     }
 
-    return data;
+    return {
+      viewed: submission.viewed ? "Yes" : "No",
+      ...data,
+    };
   });
 
-  const columns = Object.keys(submissions[0]?.data || {}).map((key) => ({
-    accessorKey: key,
-    header: key,
-  }));
+  const columns = [
+    ...Object.keys(submissions[0]?.data || {}).map((key) => ({
+      accessorKey: key,
+      header: capitalizeFirstLetter(key),
+    })),
+    { accessorKey: "viewed", header: "Viewed" },
+  ];
 
   const firstKey = Object.keys(submissions[0]?.data || {})[0];
 
