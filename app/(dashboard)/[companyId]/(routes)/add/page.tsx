@@ -1,4 +1,4 @@
-import { CompanyForm } from "../components/company-form";
+import { CompanyForm } from "@/components/forms/company-form";
 
 const CompanyPage = async () => {
   return (

@@ -1,6 +1,5 @@
+import { CompanyForm } from "@/components/forms/company-form";
 import db from "@/lib/db";
-
-import { CompanyForm } from "../components/company-form";
 
 interface CompanyPageProps {
   params: {
