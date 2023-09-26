@@ -9,7 +9,7 @@ import { ApiAlert } from "./api-alert";
 
 export const ApiList = () => {
   const params = useParams();
-  const baseUrl = getURL(`/api/company/${params.companyId}/submit`);
+  const baseUrl = getURL(`/api/companies/${params.companyId}/submit`);
 
   return (
     <>
