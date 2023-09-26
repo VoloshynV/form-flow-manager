@@ -22,7 +22,13 @@ export const MainNav = () => {
   ];
 
   return (
-    <div className="flex space-x-4">
+    <nav className="flex items-center gap-x-4">
+      <Link
+        href={`/${params.companyId}`}
+        className="mr-7 font-mono text-2xl font-bold"
+      >
+        <span className="text-orange-400">Form</span>Flow
+      </Link>
       {routes.map((route) => (
         <Link
           key={route.path}
@@ -35,6 +41,6 @@ export const MainNav = () => {
           {route.name}
         </Link>
       ))}
-    </div>
+    </nav>
   );
 };

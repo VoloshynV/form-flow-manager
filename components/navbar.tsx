@@ -1,5 +1,4 @@
 import { auth, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
 
 import { getCompanies } from "@/actions/get-companies";
 
@@ -26,9 +25,6 @@ export const Navbar = async () => {
     <div className="border-b py-4">
       <Container>
         <div className="flex items-center gap-7">
-          <Link href="/" className="font-mono text-2xl font-bold">
-            <span className="text-orange-400">Form</span>Flow
-          </Link>
           <MainNav />
           <div className="ml-auto flex items-center gap-x-8">
             <div className="flex items-center gap-x-2">
