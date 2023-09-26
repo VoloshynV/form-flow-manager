@@ -12,7 +12,7 @@ interface CompaniesProps {
   };
 }
 
-const CompaniesPage: React.FC<CompaniesProps> = async ({ params }) => {
+const CompaniesPage: React.FC<CompaniesProps> = async () => {
   const { userId } = auth();
 
   if (!userId) {
