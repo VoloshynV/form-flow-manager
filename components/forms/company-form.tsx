@@ -35,7 +35,7 @@ interface CompanyFormProps {
 
 const formSchema = z.object({
   name: z.string().min(3),
-  frontendUrl: z.string().url(),
+  frontendUrl: z.string().url().or(z.literal("")),
   validationFields: z.string().min(3),
 });
 
@@ -116,7 +116,12 @@ export const CompanyForm: React.FC<CompanyFormProps> = ({ initialData }) => {
                 name="frontendUrl"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Frontend URL</FormLabel>
+                    <FormLabel>
+                      Frontend URL{" "}
+                      <span className="text-xs text-muted-foreground">
+                        (optional)
+                      </span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
