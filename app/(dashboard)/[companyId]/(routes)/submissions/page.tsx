@@ -13,15 +13,15 @@ interface SubmissionsProps {
   };
 }
 
-export interface SubmissionColumns {
+export interface SubmissionColumn {
+  id: string;
   viewed: boolean;
   [key: string]: any;
 }
 
 const SubmissionsPage: React.FC<SubmissionsProps> = async ({ params }) => {
   const submissions = await getSubmissions(params.companyId);
-
-  const formattedSubmissions: SubmissionColumns[] = submissions.map(
+  const formattedSubmissions: SubmissionColumn[] = submissions.map(
     (submission) => {
       let data = {};
 
@@ -30,13 +30,14 @@ const SubmissionsPage: React.FC<SubmissionsProps> = async ({ params }) => {
       }
 
       return {
+        id: submission.uuid,
         viewed: submission.viewed,
         ...data,
       };
     },
   );
 
-  const columns: ColumnDef<SubmissionColumns>[] = [
+  const columns: ColumnDef<SubmissionColumn>[] = [
     ...Object.keys(submissions[0]?.data || {}).map((key) => ({
       accessorKey: key,
       header: capitalizeFirstLetter(key),

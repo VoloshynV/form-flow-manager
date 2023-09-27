@@ -1,17 +1,12 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { Mail, MailOpen } from "lucide-react";
 
-import { SubmissionColumns } from "../page";
+import { SubmissionColumn } from "../page";
+import { ViewedCell } from "./viewed-cell";
 
-export const column: ColumnDef<SubmissionColumns> = {
+export const column: ColumnDef<SubmissionColumn> = {
   accessorKey: "viewed",
   header: "Viewed",
-  cell: ({ row }) =>
-    row.original.viewed ? (
-      <MailOpen className="h-5 w-5 text-gray-500" />
-    ) : (
-      <Mail className="h-5 w-5 text-yellow-600" />
-    ),
+  cell: ({ row }) => <ViewedCell data={row.original} />,
 };
